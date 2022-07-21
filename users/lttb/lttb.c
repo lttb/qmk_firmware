@@ -9,12 +9,16 @@
 enum combo_events {
     MOUSE_KEYS_COMBO,
 
+    SFT_COMBO,
     SFT_COMBO_L,
     SFT_COMBO_R,
+    CMD_COMBO,
     CMD_COMBO_L,
     CMD_COMBO_R,
+    ALT_COMBO,
     ALT_COMBO_L,
     ALT_COMBO_R,
+    CTL_COMBO,
     CTL_COMBO_L,
     CTL_COMBO_R,
 
@@ -49,13 +53,20 @@ uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM mouse_keys_combo[] = {KC_Z, KC_F, COMBO_END};
 
-const uint16_t PROGMEM sft_combo_l[] = {BASE_THUMB_L, KC_F,    COMBO_END};
-const uint16_t PROGMEM sft_combo_r[] = {BASE_THUMB_R, KC_J,    COMBO_END};
-const uint16_t PROGMEM cmd_combo_l[] = {BASE_THUMB_L, KC_D,    COMBO_END};
-const uint16_t PROGMEM cmd_combo_r[] = {BASE_THUMB_R, KC_K,    COMBO_END};
-const uint16_t PROGMEM alt_combo_l[] = {BASE_THUMB_L, KC_S,    COMBO_END};
-const uint16_t PROGMEM alt_combo_r[] = {BASE_THUMB_R, KC_L,    COMBO_END};
-const uint16_t PROGMEM ctl_combo_l[] = {BASE_THUMB_L, KC_A,    COMBO_END};
+const uint16_t PROGMEM sft_combo[]   = {KC_F,         KC_J,      COMBO_END};
+const uint16_t PROGMEM sft_combo_l[] = {BASE_THUMB_L, KC_F,      COMBO_END};
+const uint16_t PROGMEM sft_combo_r[] = {BASE_THUMB_R, KC_J,      COMBO_END};
+
+const uint16_t PROGMEM cmd_combo[]   = {KC_D,         KC_K,      COMBO_END};
+const uint16_t PROGMEM cmd_combo_l[] = {BASE_THUMB_L, KC_D,      COMBO_END};
+const uint16_t PROGMEM cmd_combo_r[] = {BASE_THUMB_R, KC_K,      COMBO_END};
+
+const uint16_t PROGMEM alt_combo[]   = {KC_S,         KC_L,      COMBO_END};
+const uint16_t PROGMEM alt_combo_l[] = {BASE_THUMB_L, KC_S,      COMBO_END};
+const uint16_t PROGMEM alt_combo_r[] = {BASE_THUMB_R, KC_L,      COMBO_END};
+
+const uint16_t PROGMEM ctl_combo[]   = {KC_A,         KC_SCLN,   COMBO_END};
+const uint16_t PROGMEM ctl_combo_l[] = {BASE_THUMB_L, KC_A,      COMBO_END};
 const uint16_t PROGMEM ctl_combo_r[] = {BASE_THUMB_R, KC_SCLN, COMBO_END};
 
 const uint16_t PROGMEM sft_cmd_combo_l[] = {KC_D,    KC_F, COMBO_END};
@@ -86,12 +97,19 @@ const uint16_t PROGMEM sft_cmd_alt_ctl_combo_r[] = {KC_SCLN, KC_L, KC_K, KC_J, C
 combo_t key_combos[] = {
     [MOUSE_KEYS_COMBO] = COMBO(mouse_keys_combo, TG(1)),
 
+    [SFT_COMBO] = COMBO(sft_combo, OSM(MOD_LSFT)),
     [SFT_COMBO_L] = COMBO(sft_combo_l, OSM(MOD_LSFT)),
     [SFT_COMBO_R] = COMBO(sft_combo_r, OSM(MOD_LSFT)),
+
+    [CMD_COMBO] = COMBO(cmd_combo, OSM(MOD_LGUI)),
     [CMD_COMBO_L] = COMBO(cmd_combo_l, OSM(MOD_LGUI)),
     [CMD_COMBO_R] = COMBO(cmd_combo_r, OSM(MOD_LGUI)),
+
+    [ALT_COMBO] = COMBO(alt_combo, OSM(MOD_LALT)),
     [ALT_COMBO_L] = COMBO(alt_combo_l, OSM(MOD_LALT)),
     [ALT_COMBO_R] = COMBO(alt_combo_r, OSM(MOD_LALT)),
+
+    [CTL_COMBO] = COMBO(ctl_combo, OSM(MOD_LCTL)),
     [CTL_COMBO_L] = COMBO(ctl_combo_l, OSM(MOD_LCTL)),
     [CTL_COMBO_R] = COMBO(ctl_combo_r, OSM(MOD_LCTL)),
 

@@ -1,6 +1,6 @@
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6
 
-#define COMBO_TERM 30
+#define COMBO_TERM 50
 
 // #define TAPPING_TOGGLE 2
 
