@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#include "../callum/swapper.h"
+#include "./features/swapper.h"
 #include "./features/achordion.h"
 #include "./features/select_word.h"
 
@@ -58,17 +58,25 @@ bool sw_lang_active = false;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!process_select_word(keycode, record, UK_SELWRD)) { return false; }
 
+    bool is_swapper_skip = keycode == KC_LSFT
+        || keycode == OSM(MOD_LSFT)
+        || keycode == MOD_LSFT
+        || keycode == KC_LEFT
+        || keycode == KC_RIGHT
+        || keycode == KC_UP
+        || keycode == KC_DOWN;
+
     update_swapper(
         &sw_appl_active, KC_LGUI, KC_TAB, SW_APPL,
-        keycode, record
+        keycode, is_swapper_skip, record
     );
     update_swapper(
         &sw_wind_active, KC_LGUI, KC_GRV, SW_WIND,
-        keycode, record
+        keycode, is_swapper_skip, record
     );
     update_swapper(
         &sw_lang_active, KC_LGUI, KC_SPC, SW_LANG,
-        keycode, record
+        keycode, is_swapper_skip, record
     );
 
     switch (keycode) {
@@ -150,23 +158,24 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
   return 800;  // Otherwise use a timeout of 800 ms.
 }
 
-// bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-//     switch (keycode) {
-//         // case LT(_NAV, KC_SPC):
-//         case LT(_SYM, KC_ENT):
-//             // Immediately select the hold action when another key is pressed.
-//             return true;
-//         default:
-//             // Do not select the hold action when another key is pressed.
-//             return false;
-//     }
-// }
-
-bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        // case LT(_NAV, KC_SPC):
         case LT(_SYM, KC_ENT):
-            return false;
-        default:
+            // Immediately select the hold action when another key is pressed.
             return true;
+        default:
+            // Do not select the hold action when another key is pressed.
+            return false;
     }
 }
+
+// bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
+//     switch (keycode) {
+//         case LT(_NAV, KC_SPC):
+//         case LT(_SYM, KC_ENT):
+//             return false;
+//         default:
+//             return true;
+//     }
+// }

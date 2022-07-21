@@ -1,4 +1,4 @@
-SRC += ../callum/swapper.c
+SRC += ./features/swapper.c
 SRC += ./features/achordion.c
 SRC += ./features/select_word.c
 SRC += lttb.c
@@ -21,7 +21,9 @@ MOUSEKEY_ENABLE = yes
 COMBO_ENABLE = yes
 
 CONSOLE_ENABLE = no
-COMMAND_ENABLE = nos
+COMMAND_ENABLE = no
+
+CAPS_WORD_ENABLE = yes
 
 ifeq ($(strip $(KEYBOARD)), sofle_choc)
 
