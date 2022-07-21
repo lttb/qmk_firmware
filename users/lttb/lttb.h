@@ -94,6 +94,9 @@ enum userspace_layers {
 
 /* Base Layer */
 
+#define BASE_THUMB_L LT(_NAV, KC_SPC)
+#define BASE_THUMB_R LT(_SYM, KC_ENT)
+
 #define _________________BASE_5_L0_________________     _________________NUMBRS_H1_________________
 #define _________________BASE_5_L1_________________     _________________QWERTY_L1_________________
 #define _________________BASE_5_L2_________________     KC_A, KC_S, KC_D, KC_F, KC_G
@@ -114,8 +117,8 @@ enum userspace_layers {
 #define _________________BASE_6_R2_________________     _________________BASE_5_R2_________________, KC_QUOT
 #define _________________BASE_6_R3_________________     _________________BASE_5_R3_________________, KC_RSFT
 
-#define ____BASE_2_LT____                               KC_LGUI, LT(_NAV, KC_SPC)
-#define ____BASE_2_RT____                               LT(_SYM, KC_ENT), KC_HYPR
+#define ____BASE_2_LT____                               KC_LGUI, BASE_THUMB_L
+#define ____BASE_2_RT____                               BASE_THUMB_R, KC_HYPR
 
 #define __________BASE_3_LT___________                  XXXXXXX, ____BASE_2_LT____
 #define __________BASE_3_RT___________                  ____BASE_2_RT____, XXXXXXX
@@ -160,9 +163,9 @@ enum userspace_layers {
 #define _________________NAVI_5_L3_________________     G(KC_Z),          G(KC_X),          G(KC_C),           G(KC_V),           _______
 
 #define _________________NAVI_5_R0_________________     ___________________________________________
-#define _________________NAVI_5_R1_________________     _______, WORD_PREV, KC_UP,   WORD_NEXT, KC_DEL
+#define _________________NAVI_5_R1_________________     _______,   WORD_PREV, KC_UP,   WORD_NEXT, KC_DEL
 #define _________________NAVI_5_R2_________________     UK_SELWRD, KC_LEFT,   KC_DOWN, KC_RIGHT,  KC_BSPC
-#define _________________NAVI_5_R3_________________     _______, TABL,      TABR,    XXXXXXX,   SW_LANG
+#define _________________NAVI_5_R3_________________     _______,   TABL,      TABR,    XXXXXXX,   SW_LANG
 
 #define _________________NAVI_6_L0_________________     _______, _________________NAVI_5_L0_________________
 #define _________________NAVI_6_L1_________________     _______, _________________NAVI_5_L1_________________

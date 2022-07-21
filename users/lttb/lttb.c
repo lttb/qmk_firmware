@@ -7,33 +7,118 @@
 #include "lttb.h"
 
 enum combo_events {
-  MOUSE_KEYS_COMBO,
-  SFT_COMBO_L,
-  SFT_COMBO_R,
-  CMD_COMBO_L,
-  CMD_COMBO_R,
-  SFT_CMD_COMBO_L,
-  SFT_CMD_COMBO_R,
-  COMBO_LENGTH
+    MOUSE_KEYS_COMBO,
+
+    SFT_COMBO_L,
+    SFT_COMBO_R,
+    CMD_COMBO_L,
+    CMD_COMBO_R,
+    ALT_COMBO_L,
+    ALT_COMBO_R,
+    CTL_COMBO_L,
+    CTL_COMBO_R,
+
+    SFT_ALT_COMBO_L,
+    SFT_ALT_COMBO_R,
+    SFT_CMD_COMBO_L,
+    SFT_CMD_COMBO_R,
+    SFT_CTL_COMBO_L,
+    SFT_CTL_COMBO_R,
+    CMD_ALT_COMBO_L,
+    CMD_ALT_COMBO_R,
+    CMD_CTL_COMBO_L,
+    CMD_CTL_COMBO_R,
+    CTL_ALT_COMBO_L,
+    CTL_ALT_COMBO_R,
+
+    SFT_CMD_ALT_COMBO_L,
+    SFT_CMD_ALT_COMBO_R,
+    SFT_CMD_CTL_COMBO_L,
+    SFT_CMD_CTL_COMBO_R,
+    SFT_CTL_ALT_COMBO_L,
+    SFT_CTL_ALT_COMBO_R,
+    CMD_ALT_CTL_COMBO_L,
+    CMD_ALT_CTL_COMBO_R,
+
+    SFT_CMD_ALT_CTL_COMBO_L,
+    SFT_CMD_ALT_CTL_COMBO_R,
+
+    COMBO_LENGTH
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
-const uint16_t PROGMEM mouse_keys_combo[] = {KC_S, KC_F,  COMBO_END};
-const uint16_t PROGMEM sft_combo_l[] = {KC_D, KC_F, COMBO_END};
-const uint16_t PROGMEM sft_combo_r[] = {KC_J, KC_K, COMBO_END};
-const uint16_t PROGMEM cmd_combo_l[] = {KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM cmd_combo_r[] = {KC_K, KC_L, COMBO_END};
-const uint16_t PROGMEM sft_cmd_combo_l[] = {KC_S, KC_D, KC_F, COMBO_END};
-const uint16_t PROGMEM sft_cmd_combo_r[] = {KC_J, KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM mouse_keys_combo[] = {KC_Z, KC_F, COMBO_END};
+
+const uint16_t PROGMEM sft_combo_l[] = {BASE_THUMB_L, KC_F,    COMBO_END};
+const uint16_t PROGMEM sft_combo_r[] = {BASE_THUMB_R, KC_J,    COMBO_END};
+const uint16_t PROGMEM cmd_combo_l[] = {BASE_THUMB_L, KC_D,    COMBO_END};
+const uint16_t PROGMEM cmd_combo_r[] = {BASE_THUMB_R, KC_K,    COMBO_END};
+const uint16_t PROGMEM alt_combo_l[] = {BASE_THUMB_L, KC_S,    COMBO_END};
+const uint16_t PROGMEM alt_combo_r[] = {BASE_THUMB_R, KC_L,    COMBO_END};
+const uint16_t PROGMEM ctl_combo_l[] = {BASE_THUMB_L, KC_A,    COMBO_END};
+const uint16_t PROGMEM ctl_combo_r[] = {BASE_THUMB_R, KC_SCLN, COMBO_END};
+
+const uint16_t PROGMEM sft_cmd_combo_l[] = {KC_D,    KC_F, COMBO_END};
+const uint16_t PROGMEM sft_cmd_combo_r[] = {KC_K,    KC_J, COMBO_END};
+const uint16_t PROGMEM sft_alt_combo_l[] = {KC_S,    KC_F, COMBO_END};
+const uint16_t PROGMEM sft_alt_combo_r[] = {KC_L,    KC_J, COMBO_END};
+const uint16_t PROGMEM sft_ctl_combo_l[] = {KC_A,    KC_F, COMBO_END};
+const uint16_t PROGMEM sft_ctl_combo_r[] = {KC_SCLN, KC_J, COMBO_END};
+const uint16_t PROGMEM cmd_ctl_combo_l[] = {KC_A,    KC_D, COMBO_END};
+const uint16_t PROGMEM cmd_ctl_combo_r[] = {KC_SCLN, KC_K, COMBO_END};
+const uint16_t PROGMEM cmd_alt_combo_l[] = {KC_S,    KC_D, COMBO_END};
+const uint16_t PROGMEM cmd_alt_combo_r[] = {KC_L,    KC_K, COMBO_END};
+const uint16_t PROGMEM ctl_alt_combo_l[] = {KC_A,    KC_S, COMBO_END};
+const uint16_t PROGMEM ctl_alt_combo_r[] = {KC_SCLN, KC_L, COMBO_END};
+
+const uint16_t PROGMEM sft_cmd_alt_combo_l[] = {KC_S,    KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM sft_cmd_alt_combo_r[] = {KC_L,    KC_K, KC_J, COMBO_END};
+const uint16_t PROGMEM sft_cmd_ctl_combo_l[] = {KC_A,    KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM sft_cmd_ctl_combo_r[] = {KC_SCLN, KC_K, KC_J, COMBO_END};
+const uint16_t PROGMEM cmd_alt_ctl_combo_l[] = {KC_A,    KC_S, KC_D, COMBO_END};
+const uint16_t PROGMEM cmd_alt_ctl_combo_r[] = {KC_SCLN, KC_L, KC_K, COMBO_END};
+const uint16_t PROGMEM sft_ctl_alt_combo_l[] = {KC_A,    KC_S, KC_F, COMBO_END};
+const uint16_t PROGMEM sft_ctl_alt_combo_r[] = {KC_SCLN, KC_L, KC_J, COMBO_END};
+
+const uint16_t PROGMEM sft_cmd_alt_ctl_combo_l[] = {KC_A,    KC_S, KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM sft_cmd_alt_ctl_combo_r[] = {KC_SCLN, KC_L, KC_K, KC_J, COMBO_END};
 
 combo_t key_combos[] = {
     [MOUSE_KEYS_COMBO] = COMBO(mouse_keys_combo, TG(1)),
+
     [SFT_COMBO_L] = COMBO(sft_combo_l, OSM(MOD_LSFT)),
     [SFT_COMBO_R] = COMBO(sft_combo_r, OSM(MOD_LSFT)),
     [CMD_COMBO_L] = COMBO(cmd_combo_l, OSM(MOD_LGUI)),
     [CMD_COMBO_R] = COMBO(cmd_combo_r, OSM(MOD_LGUI)),
-    [SFT_CMD_COMBO_L] = COMBO(sft_cmd_combo_l, OSM(MOD_LGUI | MOD_LSFT)),
-    [SFT_CMD_COMBO_R] = COMBO(sft_cmd_combo_r, OSM(MOD_LGUI | MOD_LSFT)),
+    [ALT_COMBO_L] = COMBO(alt_combo_l, OSM(MOD_LALT)),
+    [ALT_COMBO_R] = COMBO(alt_combo_r, OSM(MOD_LALT)),
+    [CTL_COMBO_L] = COMBO(ctl_combo_l, OSM(MOD_LCTL)),
+    [CTL_COMBO_R] = COMBO(ctl_combo_r, OSM(MOD_LCTL)),
+
+    [SFT_CMD_COMBO_L] = COMBO(sft_cmd_combo_l, OSM(MOD_LSFT | MOD_LGUI)),
+    [SFT_CMD_COMBO_R] = COMBO(sft_cmd_combo_r, OSM(MOD_LSFT | MOD_LGUI)),
+    [SFT_ALT_COMBO_L] = COMBO(sft_alt_combo_l, OSM(MOD_LSFT | MOD_LALT)),
+    [SFT_ALT_COMBO_R] = COMBO(sft_alt_combo_r, OSM(MOD_LSFT | MOD_LALT)),
+    [SFT_CTL_COMBO_L] = COMBO(sft_ctl_combo_l, OSM(MOD_LSFT | MOD_LCTL)),
+    [SFT_CTL_COMBO_R] = COMBO(sft_ctl_combo_r, OSM(MOD_LSFT | MOD_LCTL)),
+    [CMD_CTL_COMBO_L] = COMBO(cmd_ctl_combo_l, OSM(MOD_LGUI | MOD_LCTL)),
+    [CMD_CTL_COMBO_R] = COMBO(cmd_ctl_combo_r, OSM(MOD_LGUI | MOD_LCTL)),
+    [CMD_ALT_COMBO_L] = COMBO(cmd_alt_combo_l, OSM(MOD_LGUI | MOD_LALT)),
+    [CMD_ALT_COMBO_R] = COMBO(cmd_alt_combo_r, OSM(MOD_LGUI | MOD_LALT)),
+    [CTL_ALT_COMBO_L] = COMBO(ctl_alt_combo_l, OSM(MOD_LCTL | MOD_LALT)),
+    [CTL_ALT_COMBO_R] = COMBO(ctl_alt_combo_r, OSM(MOD_LCTL | MOD_LALT)),
+
+    [SFT_CMD_ALT_COMBO_L] = COMBO(sft_cmd_alt_combo_l, OSM(MOD_LSFT | MOD_LGUI | MOD_LALT)),
+    [SFT_CMD_ALT_COMBO_R] = COMBO(sft_cmd_alt_combo_r, OSM(MOD_LSFT | MOD_LGUI | MOD_LALT)),
+    [SFT_CMD_CTL_COMBO_L] = COMBO(sft_cmd_ctl_combo_l, OSM(MOD_LSFT | MOD_LGUI | MOD_LCTL)),
+    [SFT_CMD_CTL_COMBO_R] = COMBO(sft_cmd_ctl_combo_r, OSM(MOD_LSFT | MOD_LGUI | MOD_LCTL)),
+    [CMD_ALT_CTL_COMBO_L] = COMBO(cmd_alt_ctl_combo_l, OSM(MOD_LGUI | MOD_LALT | MOD_LCTL)),
+    [CMD_ALT_CTL_COMBO_R] = COMBO(cmd_alt_ctl_combo_r, OSM(MOD_LGUI | MOD_LALT | MOD_LCTL)),
+    [SFT_CTL_ALT_COMBO_L] = COMBO(sft_ctl_alt_combo_l, OSM(MOD_LSFT | MOD_LCTL | MOD_LALT)),
+    [SFT_CTL_ALT_COMBO_R] = COMBO(sft_ctl_alt_combo_r, OSM(MOD_LSFT | MOD_LCTL | MOD_LALT)),
+
+    [SFT_CMD_ALT_CTL_COMBO_L] = COMBO(sft_cmd_alt_ctl_combo_l, OSM(MOD_LSFT | MOD_LGUI | MOD_LALT | MOD_LCTL)),
+    [SFT_CMD_ALT_CTL_COMBO_R] = COMBO(sft_cmd_alt_ctl_combo_r, OSM(MOD_LSFT | MOD_LGUI | MOD_LALT | MOD_LCTL)),
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
@@ -170,12 +255,12 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
-// bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
-//     switch (keycode) {
-//         case LT(_NAV, KC_SPC):
-//         case LT(_SYM, KC_ENT):
-//             return false;
-//         default:
-//             return true;
-//     }
-// }
+bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(_NAV, KC_SPC):
+        case LT(_SYM, KC_ENT):
+            return false;
+        default:
+            return true;
+    }
+}
