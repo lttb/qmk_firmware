@@ -51,7 +51,7 @@ enum combo_events {
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
-const uint16_t PROGMEM mouse_keys_combo[] = {KC_V, KC_C, COMBO_END};
+const uint16_t PROGMEM mouse_keys_combo[] = {KC_X, KC_C, COMBO_END};
 
 const uint16_t PROGMEM sft_combo[]   = {KC_F,         KC_J,      COMBO_END};
 const uint16_t PROGMEM sft_combo_l[] = {BASE_THUMB_L, KC_F,      COMBO_END};
@@ -256,8 +256,8 @@ bool achordion_chord(
     keyrecord_t* other_record
 ) {
     switch (tap_hold_keycode) {
-        case LT(_NAV, KC_SPC):
-        case LT(_SYM, KC_ENT):
+        case BASE_THUMB_L:
+        case BASE_THUMB_R:
             return true;
     }
 
@@ -266,8 +266,8 @@ bool achordion_chord(
 
 uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
   switch (tap_hold_keycode) {
-        case LT(_NAV, KC_SPC):
-        case LT(_SYM, KC_ENT):
+        case BASE_THUMB_L:
+        case BASE_THUMB_R:
             return 0;  // Bypass Achordion for these keys.
   }
 
@@ -276,8 +276,8 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        // case LT(_NAV, KC_SPC):
-        case LT(_SYM, KC_ENT):
+        // case BASE_THUMB_L:
+        case BASE_THUMB_R:
             // Immediately select the hold action when another key is pressed.
             return true;
         default:
@@ -288,8 +288,8 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(_NAV, KC_SPC):
-        case LT(_SYM, KC_ENT):
+        case BASE_THUMB_L:
+        case BASE_THUMB_R:
             return false;
         default:
             return true;
