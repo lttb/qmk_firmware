@@ -51,7 +51,7 @@ enum combo_events {
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
-const uint16_t PROGMEM mouse_keys_combo[] = {KC_Z, KC_F, COMBO_END};
+const uint16_t PROGMEM mouse_keys_combo[] = {KC_V, KC_C, COMBO_END};
 
 const uint16_t PROGMEM sft_combo[]   = {KC_F,         KC_J,      COMBO_END};
 const uint16_t PROGMEM sft_combo_l[] = {BASE_THUMB_L, KC_F,      COMBO_END};
@@ -138,6 +138,19 @@ combo_t key_combos[] = {
     [SFT_CMD_ALT_CTL_COMBO_L] = COMBO(sft_cmd_alt_ctl_combo_l, OSM(MOD_LSFT | MOD_LGUI | MOD_LALT | MOD_LCTL)),
     [SFT_CMD_ALT_CTL_COMBO_R] = COMBO(sft_cmd_alt_ctl_combo_r, OSM(MOD_LSFT | MOD_LGUI | MOD_LALT | MOD_LCTL)),
 };
+
+bool get_combo_must_hold(uint16_t index, combo_t *combo) {
+    switch (index) {
+        // exclude accidental rolling combos
+        case CMD_ALT_COMBO_L:
+        case CMD_CTL_COMBO_L:
+        case SFT_CTL_COMBO_L:
+        case CTL_ALT_COMBO_L:
+            return true;
+    }
+
+    return false;
+}
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
