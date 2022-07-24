@@ -1,3 +1,5 @@
+> Should be replaced with upstream when https://github.com/qmk/qmk_firmware/pull/16736 is merged
+
 # Sofle Choc Keyboard
 
 ![Sofle Choc Photo](https://i.imgur.com/MhSEAZY.jpg)
