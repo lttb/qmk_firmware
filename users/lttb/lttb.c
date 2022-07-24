@@ -221,7 +221,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
     }
 
-    if (!process_achordion(keycode, record)) { return false; }
+    // if (!process_achordion(keycode, record)) { return false; }
 
     return true;
 }
@@ -276,6 +276,7 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case SFT_T(KC_Z):
         // case BASE_THUMB_L:
         case BASE_THUMB_R:
             // Immediately select the hold action when another key is pressed.

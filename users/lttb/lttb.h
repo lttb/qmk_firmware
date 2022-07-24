@@ -100,12 +100,12 @@ enum userspace_layers {
 #define _________________BASE_5_L0_________________     _________________NUMBRS_H1_________________
 #define _________________BASE_5_L1_________________     _________________QWERTY_L1_________________
 #define _________________BASE_5_L2_________________     KC_A, KC_S, KC_D, KC_F, KC_G
-#define _________________BASE_5_L3_________________     LT(_MOUSE, KC_Z), KC_X, KC_C, KC_V, KC_B
+#define _________________BASE_5_L3_________________     SFT_T(KC_Z), KC_X, KC_C, KC_V, KC_B
 
 #define _________________BASE_5_R0_________________     _________________NUMBRS_H2_________________
 #define _________________BASE_5_R1_________________     _________________QWERTY_R1_________________
 #define _________________BASE_5_R2_________________     KC_H, KC_J, KC_K,    KC_L,   KC_SCLN
-#define _________________BASE_5_R3_________________     KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH
+#define _________________BASE_5_R3_________________     KC_N, KC_M, KC_COMM, KC_DOT, SFT_T(KC_SLSH)
 
 #define _________________BASE_6_L0_________________     KC_GRV,               _________________BASE_5_L0_________________
 #define _________________BASE_6_L1_________________     KC_TAB,               _________________BASE_5_L1_________________
@@ -131,13 +131,13 @@ enum userspace_layers {
 
 #define _________________SYMB_5_L0_________________     ___________________________________________
 #define _________________SYMB_5_L1_________________     KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC
-#define _________________SYMB_5_L2_________________     KC_GRV,  KC_COLN, KC_MINS, KC_QUOT, XXXXXXX
-#define _________________SYMB_5_L3_________________     KC_TILD, KC_BSLS, KC_PLUS, KC_UNDS, XXXXXXX
+#define _________________SYMB_5_L2_________________     KC_GRV,         KC_COLN,        KC_MINS,        KC_QUOT,        XXXXXXX
+#define _________________SYMB_5_L3_________________     KC_TILD,        KC_BSLS,        KC_PLUS,        KC_UNDS,        XXXXXXX
 
 #define _________________SYMB_5_R0_________________     ___________________________________________
 #define _________________SYMB_5_R1_________________     KC_CIRC, KC_AMPR,        KC_ASTR,      KC_LCBR,      KC_RCBR
-#define _________________SYMB_5_R2_________________     KC_PIPE, KC_LPRN, KC_RPRN, KC_EQL, KC_BSPC
-#define _________________SYMB_5_R3_________________     KC_LBRC, KC_RBRC, KC_LT, KC_GT,  KC_QUES
+#define _________________SYMB_5_R2_________________     KC_PIPE, KC_LPRN,        KC_RPRN,      KC_EQL,       KC_COLN
+#define _________________SYMB_5_R3_________________     KC_LBRC, KC_RBRC,        KC_LT,        KC_GT,        KC_QUES
 
 #define _________________SYMB_6_L0_________________     _______, _________________SYMB_5_L0_________________
 #define _________________SYMB_6_L1_________________     _______, _________________SYMB_5_L1_________________
