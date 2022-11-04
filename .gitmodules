@@ -1,6 +1,7 @@
 [submodule "users/lttb"]
 	path = users/lttb
 	url = https://github.com/lttb/kbd
+        branch = main
 [submodule "lib/chibios"]
 	path = lib/chibios
 	url = https://github.com/qmk/ChibiOS
