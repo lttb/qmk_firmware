@@ -18,13 +18,6 @@
 
 #include "config_common.h"
 
-// USB Device descriptor parameter
-#define VENDOR_ID       0xFC32 // Copied from sofle/rev1 so that Via works
-#define PRODUCT_ID      0x0287 // Copied from sofle/rev1 so that Via works
-#define DEVICE_VER      0x0001
-#define MANUFACTURER    Brian Low
-#define PRODUCT         Sofle Choc
-
 // Key matrix size
 // Rows are doubled-up
 #define MATRIX_ROWS 10
@@ -42,12 +35,8 @@
 #define ENCODERS_PAD_B { F4 }
 #define ENCODERS_PAD_A_RIGHT { F4 }
 #define ENCODERS_PAD_B_RIGHT { F5 }
-#define ENCODER_RESOLUTION 2
-
-#define TAP_CODE_DELAY 10
 
 // Communication between sides
-#define USE_SERIAL
 #define SOFT_SERIAL_PIN D2
 
 #ifdef RGB_MATRIX_ENABLE
