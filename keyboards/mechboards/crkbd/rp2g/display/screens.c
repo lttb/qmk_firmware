@@ -4,6 +4,7 @@
 #include "qp_lvgl.h"
 #include "printf.h"
 #include "transactions.h"
+#include "gfx/ezgif.h"
 
 lv_obj_t *label_wpm;
 lv_obj_t *label_time;
@@ -19,6 +20,7 @@ lv_obj_t *label_layer_now;
 lv_obj_t *label_track;
 lv_obj_t *chart;
 lv_obj_t *album_art;
+lv_obj_t *gif;
 lv_obj_t *progress;
 lv_obj_t *img_scr;
 lv_obj_t *layer_btn_matrix;
@@ -110,7 +112,6 @@ void spotify_display_init(void) {
     lv_obj_align(label_time, LV_ALIGN_TOP_MID, 0, 4);
 
     album_art = lv_img_create(lv_scr_act());
-
     lv_img_set_src(album_art, &mb);
     lv_obj_align(album_art, LV_ALIGN_TOP_MID, 0, 30);
 
@@ -129,6 +130,11 @@ void spotify_display_init(void) {
     lv_obj_add_style(progress, &style_main, LV_PART_MAIN);
     lv_obj_add_style(progress, &style_indicator, LV_PART_INDICATOR);
     lv_obj_add_style(progress, &style_knob, LV_PART_KNOB);
+}
+void gif_display_init(void) {
+    gif = lv_gif_create(lv_scr_act());
+    lv_gif_set_src(gif, &ezgif);
+    lv_obj_align(gif, LV_ALIGN_TOP_MID, 0, 30);
 }
 
 void pc_layer_wpm_display_init(void) {

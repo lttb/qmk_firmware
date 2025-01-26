@@ -211,6 +211,9 @@ void draw_screen(uint8_t screen) {
         case 0x03:
             spotify_display_init();
             break;
+        case 0x04:
+            gif_display_init();
+            break;
 
         default:
             break;

@@ -6,7 +6,7 @@ WPM_ENABLE = yes
 
 
 # SRC += gfx/mb.qgf.c
-# SRC += gfx/mb.c
+SRC += gfx/ezgif.c
 SRC += display/display.c
 SRC += display/screens.c
 SRC += display/styles.c
