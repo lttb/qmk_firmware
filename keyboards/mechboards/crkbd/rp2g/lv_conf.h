@@ -21,3 +21,9 @@
 
 #undef LV_USE_GIF
 #define LV_USE_GIF 1
+
+// #undef LV_COLOR_DEPTH
+// #define LV_COLOR_DEPTH 8
+
+// #undef LV_COLOR_16_SWAP
+// #define LV_COLOR_8_SWAP 1

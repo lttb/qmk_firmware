@@ -24,6 +24,7 @@ lv_obj_t *album_art;
 lv_obj_t *progress;
 lv_obj_t *img_scr;
 lv_obj_t *layer_btn_matrix;
+lv_obj_t *gif;
 
 lv_chart_series_t *ser;
 

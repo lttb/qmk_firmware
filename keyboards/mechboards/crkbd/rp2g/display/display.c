@@ -9,6 +9,7 @@
 #include "transactions.h"
 #include "screens.h"
 #include "styles.h"
+#include "gfx/ezgif.h"
 
 painter_device_t lcd;
 
@@ -115,17 +116,44 @@ void processes_command(uint8_t *data, uint8_t length) {
             break;
         case _IMAGE:
             uint16_t x = ((uint16_t)data[4] << 8) | data[5];
-            uprintf("Image %d %d %hu %d\n", data[4], data[5], x, length);
-            memcpy(&lv_mb_map[x * 26], &data[6], length - 6);
-            lv_img_set_src(album_art, &mb);
+            uprintf("Image %d %d %hu %d\n", data[4], data[5], x, data[6]);
+            memcpy(&lv_mb_map[x * 25], &data[7], data[6]);
             break;
         case _IMG_FS:
             uprintf("Image FS\n");
             uint16_t y = ((uint16_t)data[4] << 8) | data[5];
-            uprintf("Image %d %d %hu %d\n", data[4], data[5], y, length);
-            memcpy(&lv_scr[(y * 26)], &data[6], length - 6);
-            lv_img_set_src(img_scr, &scr);
+            uprintf("Image %d %d %hu %d\n", data[4], data[5], y, data[6]);
+            memcpy(&lv_scr[(y * 25)], &data[7], data[6]);
             break;
+        case _IMG_GIF:
+            uprintf("Image GIF\n");
+            uint16_t z = ((uint16_t)data[4] << 8) | data[5];
+            uprintf("GIF %d %d %hu %d\n", data[4], data[5], z, data[6]);
+            memcpy(&ezgif_map[(z * 25)], &data[7], data[6]);
+            break;
+        case _STATUS:
+            uprintf("staus: %d\n", data[4]);
+            switch (data[4]) {
+                case _IMAGE:
+                    uprintf("Image Set\n");
+                    lv_img_set_src(album_art, &mb);
+                    break;
+                case _IMG_FS:
+                    uprintf("Image FS Set\n");
+                    lv_img_set_src(img_scr, &scr);
+                    break;
+                case _IMG_GIF:
+                    if (data[5] == 0x00) {
+                        uprintf("Gif Pause\n");
+                        lv_obj_del(gif);
+                        draw_screen(0xFF);
+                    } else {
+                        uprintf("Gif Set %d\n", ((uint16_t)data[6] << 8) | data[7]);
+                        // ezgif.data_size = ((uint16_t)data[6] << 8) | data[7];
+                        draw_screen(4);
+                    }
+                    break;
+            }
     }
 }
 
